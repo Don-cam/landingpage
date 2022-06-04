@@ -2,17 +2,17 @@
 
 @font-face {
   font-family:'museoSans-300';
-  src: url(/font/MuseoSans-300.otf);
+  src: url('/font/MuseoSans-300.otf');
 }
 
 @font-face {
   font-family: 'museoSans-700';
-  src: url(/font/MuseoSans_700.otf);
+  src: url('/font/MuseoSans_700.otf');
 }
 
 @font-face {
   font-family:'museoSans-900';
-  src: url(/font/MuseoSans-900.ttf);
+  src: url('/font/MuseoSans-900.ttf');
 }
 
 /* font-family: 'Open Sans', sans-serif;
@@ -40,6 +40,8 @@ input[type="number"] {
 
 :root{
   --bs-font-sans-serif: 'museoSans-300', 'museoSans-700','museoSans-900';
+  --bs-font-monospace:  'museoSans-300', 'museoSans-700','museoSans-900';
+  --font-family-base:'museoSans-300', 'museoSans-700','museoSans-900';
 }
 
 :root {
@@ -56,6 +58,7 @@ input[type="number"] {
 
 html {
   scroll-behavior: smooth;
+  min-width: 392px;
 }
 
 body{
@@ -137,6 +140,7 @@ header .navCont{
   left:33%;
   right: 0;
   padding-bottom: 5.125rem  ;
+  transition: all 600ms ease-in;
 } 
 
 .ctaButton button{
@@ -169,7 +173,7 @@ header .navCont{
 }
 
 .objetivos p{
-  color: var(--primary-color);
+  color: rgba(78, 78, 78, 0.664);
   width:55%;
   font-family:'museoSans-300' ;
   font-weight: 500;
@@ -177,9 +181,10 @@ header .navCont{
 
 .objetivos .objetivosBox p {
   font-family: 'museoSans-700';
+  color: var(--primary-color);
 }
 
-.objetivos .row .col-md{
+.objetivos .row .col-sm{
   position: relative;
   text-align: center;
   border: .1rem solid rgb(194, 194, 194);
@@ -187,7 +192,7 @@ header .navCont{
   padding:1.5rem .5rem ;
 }
 
-.objetivos .row .col-md h3{
+.objetivos .row .col-sm h3{
   font-family: 'museoSans-700';
   color: var(--primary-color);
   width: 50%;
@@ -195,12 +200,11 @@ header .navCont{
   padding: .5rem;
 }
 
-.objetivos .row .col-md p{
-  width: 50%;
+.objetivos .row .col-sm p{
   margin:0 auto;
 }
 
-.objetivos .row .col-md::after{
+.objetivos .row .col-sm::after{
   position: absolute;
   content: "";
   border-radius: 0 0 1rem 0;
@@ -212,50 +216,54 @@ header .navCont{
   transition: 300ms ease-in;
 }
 
-.objetivos .row .col-md:nth-child(2) a{
+.objetivos .row .col-sm:nth-child(2) a{
   display: block;
   width: 50%;
   margin: .5rem auto;
+  min-width: fit-content;
 }
 
-.objetivos .row .col-md svg{
+.objetivos .row .col-sm svg{
   color: #026be4;
 }
 
 
 /* HoverState */
 
-.objetivos .row .col-md:hover::after{
+.objetivos .row .col-sm:hover::after{
   width: 60%;
   transition: 300ms ease-in;
 }
 
-.objetivos .row .col-md:hover{
+.objetivos .row .col-sm:hover{
   background-color: var(--midLightBlue-color);
   cursor: pointer;
   color: white;
   
 }
-.objetivos .row .col-md:hover svg{
+.objetivos .row .col-sm:hover svg{
   color: white;
 }
 
-.objetivos .row .col-md:hover p{
+.objetivos .row .col-sm:hover p{
   color: white;
 }
 
-.objetivos .row .col-md:nth-child(2) a:hover{
+.objetivos .row .col-sm:nth-child(2) a:hover{
   display: block;
   width: 50%;
   margin: .5rem auto;
   background-color: var(--primary-color);
 }
 
+
+
 .ctaObj{
   margin: 3rem auto;
   text-transform: uppercase;
   display: block;
-  width: 32%;
+  max-width: 25rem;
+  min-width: 18.75rem;
   border-radius: 0;
   border: 0;
   background-color: var(--midLightBlue-color);
@@ -273,7 +281,6 @@ header .navCont{
   color: white;
   background-color: var(--midDarkBlue-color);
   padding: 5rem;
-  min-width: 21.25rem;
 }
 
 .row .primeiraComo .iconComo{
@@ -289,6 +296,7 @@ header .navCont{
 
 .row .primeiraComo h1 span{
   color: var(--secondary-color);
+  display: inline-block;
 }
 
 .row .segundaComo{
@@ -308,6 +316,7 @@ header .navCont{
   padding-bottom: 1rem;
 }
 
+
 .row .terceiraComo{
   padding: 5rem;
 }
@@ -322,6 +331,7 @@ header .navCont{
   text-align: right;
   font-family:'museoSans-900';
   color: var(--primary-color);
+  min-width: 25.25rem;
 }
 
 .row .terceiraComo h1 span{
@@ -383,7 +393,8 @@ header .navCont{
   margin: 3rem auto;
   text-transform: uppercase;
   display: block;
-  width: 32%;
+  max-width: 25rem;
+  min-width: 18.75rem;
   border-radius: 0;
   border: 0;
   background-color: var(--secondary-color);
@@ -394,7 +405,7 @@ header .navCont{
 }
 
 
-/* Relatórios */
+/* RELATÓRIOS */
 
 
 .relatorios .row .col-sm{
@@ -422,10 +433,14 @@ header .navCont{
   color: var(--primary-color);
 }
 
+.relatorios .row .rMensal{
+  position: relative;
+}
+
 .relatorios .row .col-sm .relatMensalTextos{
   color: var(--midDarkBlue-color);
   font-family: 'museoSans-700';
-  width: 60%;
+  
 }
 
 .relatorios .row .col-sm .relatMensalTextos span{
@@ -435,7 +450,7 @@ header .navCont{
 .relatorios .row .col-sm .planejamentoTexto{
   color: var(--midDarkBlue-color);
   font-family: 'museoSans-700';
-  width: 40%;
+  width: 65%;
   text-align: right;
   margin: 0 0 auto auto;
 }
@@ -464,7 +479,8 @@ header .navCont{
   margin: 3rem auto;
   text-transform: uppercase;
   display: block;
-  width: 32%;
+  max-width: 25rem;
+  min-width: 18.75rem;
   border-radius: 0;
   border: 0;
   background-color: var(--midLightBlue-color);
@@ -490,6 +506,9 @@ header .navCont{
   margin: 0 0 auto auto;
 }
 
+.contato .container .row .col-sm .contatoBox1{
+  min-width: 25.25rem;
+}
 
 .contato .container .row:nth-child(1){
   display: flex;
@@ -575,19 +594,6 @@ footer a{
 
 
 
-/* Individual Query ul */
-
-@media (max-width:786px){
-  .quartaComoSize{
-    width: 60%;
-    margin: 0 auto;
-  }
-  
-}
-
-
-
-
 
 
 
@@ -621,7 +627,7 @@ footer a{
   border-radius: 0;
   border: none;
   height: fit-content;
-  padding: .5rem .1rem;
+  padding: .3rem .1rem;
   min-width: 5.512rem;
   width: 20%;
 }
@@ -639,7 +645,9 @@ footer a{
   border-radius: 100%;
 }
 
-/* Objetivos */
+/* FIM CAROUSEL */
+
+/* OBJETIVOS INÍCIO */
 
 .objetivos h1{
   color: var(--secondary-color);
@@ -647,62 +655,298 @@ footer a{
   text-align: center;
 }
 
-.objetivos p{
-  color: var(--primary-color);
-  width:55%;
+.objetivos .row p{
+  color: rgb(194, 194, 194);
   font-family:'museoSans-300' ;
   font-weight: 500;
   text-align: center;
   margin: 0 auto;
 }
+
+.objetivos .objetivosBox p{
+  text-align: center;
+  margin: 0 auto;
 }
 
-/* Query Ajustes mobile */
+.objetivos .row .col-sm h3{
+  font-family: 'museoSans-700';
+  color: var(--primary-color);
+  padding: .5rem;
+  min-width: 15rem;
+}
 
-@media (max-width:502px){
-  .carousel .ctaButton{
-    position:absolute;
-    bottom: 0;
-    top: 55%;
-    left:33%;
-    right:0;
-    padding-bottom: 5.125rem  ;
-  } 
+/* FIM OBJETIVOS */
 
-  .ctaObj{
-    margin: 3rem auto;
-    text-transform: uppercase;
-    display: block;
-    width: 60%;
-    border-radius: 0;
-    border: 0;
-    background-color: var(--midLightBlue-color);
+
+/* COMO FUNCIONA INÍCIO */
+
+.row .primeiraComo h1{
+  text-align: center;
+  font-family:'museoSans-900';
+}
+
+.row .primeiraComo h1 span{
+  color: var(--secondary-color);
+  display: inline-block;
+  min-width: 17.5rem;
+}
+
+.row .primeiraComo .iconComo{
+  width: 25%;
+  min-width: 8.5rem;
+  margin: 0 auto;
+} 
+
+.row .segundaComo{
+  display: flex;
+  justify-content: center;
+}
+
+.row .segundaComo p{
+  margin: 0 auto;
+  line-height: 2;
+  padding-bottom: 1rem;
+}
+
+.row .terceiraComo .iconSeuP{
+  width: 25%;
+  min-width: 8.5rem;
+  margin: 0 auto;
+}
+
+.row .terceiraComo h1{
+  text-align: center;
+  font-family:'museoSans-900';
+  color: var(--primary-color);
+  min-width: 25.25rem;
+}
+
+.row .terceiraComo p{
+  text-align: center;
+  width: 100%;
+  margin:0 0 auto auto;
+  color: var(--midDarkBlue-color);
+  font-family: 'museoSans-700';
+}
+
+
+.quartaComoSize{
+  width: 60%;
+  min-width: 18.125rem;
+  margin: 0 auto;
+}
+
+.row .quartaComo .ul-conversao{
+  padding: 0;
+}
+
+/* FIM COMO FUNCIONA */
+
+
+/* RELATÓRIOS */
+
+.relatorios .row .col-sm .relatMensalImg{
+  position: relative;
+  width: 25%;
+  min-width: 8.5rem;
+  margin: 0 auto;
+}
+
+.relatorios .row .col-sm{
+  min-width: 25.25rem;
+}
+
+.relatorios .row .col-sm .mensalTitulo{
+  position: absolute;
+  text-align: right;
+  font-size: 1.9rem;
+  font-family:'museoSans-900';
+  color: var(--secondary-color);
+  top: -3.3rem;
+  right: 7.5rem;
+}
+
+.relatorios .row .col-sm .relatMensalTextos{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.relatorios .row .col-sm .planejamentoTexto{
+  color: var(--midDarkBlue-color);
+  font-family: 'museoSans-700';
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pReverse{
+  flex-direction: column-reverse;
+}
+
+.relatorios .row .col-sm .planejamentoMensalImg{
+  position: relative;
+  width: 25%;
+  min-width: 8.5rem;
+  margin: 0 auto;
+}
+/* FIM RELATÓRIOS */
+
+/* CONTATO INÍCIO */
+
+.contato .container .row .contImg{
+  width:25%;
+  margin: 0 auto;
+}
+
+.contato .container .row .contatoBox1 h1{
+  text-align: center;
+  font-size: 2rem;
+  font-family:'museoSans-900';
+  color: var(--secondary-color);
+}
+
+.contato .container .row .contatoBox1 p{
+  color: var(--white-color);
+  font-family: 'museoSans-700';
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+ 
+}
+
+
+
+
+/* Query Mobile Ajustes */
+
+@media (max-width:500px){
+  
+  /* ComoFunciona */
+  .row .primeiraComo h1 span{
+    color: var(--secondary-color);
+    display: inline-block;
+    min-width: 0;
   }
 
+  .row .segundaComo div{
+    width: 82%;
+    margin: 0 auto;
+  }
+
+  .row .segundaComo{
+    position: relative;
+    padding: 3rem 0;
+    align-items: center;
+  }
+
+.row .terceiraComo h1{
+  text-align: center;
+  font-family:'museoSans-900';
+  color: var(--primary-color);
+  min-width: 0;
+}
+
+.quartaComoSize{
+  width: 60%;
+  min-width: fit-content;
+  margin: 0 auto;
+}
+
+/* RELATÓRIOS */
+
+.relatorios .row .col-sm{
+  min-width: 0;
+}
+
+.relatorios .row .col-sm .relatMensalImg{
+  position: relative;
+  width: 25%;
+  min-width: 8.5rem;
+  margin: 0 0 auto auto;
+}
+
+.relatorios .row .col-sm .mensalTitulo{
+  position: absolute;
+  text-align: right;
+  font-size: 1.5rem;
+  font-family:'museoSans-900';
+  color: var(--secondary-color);
+  top: -3.3rem;
+  right: 7.5rem;
+
+}
+
+.relatorios .row .col-sm .relatMensalTextos{
+  margin: 0 auto;
+  width: 100%;
+  font-size: .9rem;
 }
 
 
-
-@media (min-width: 800px){
-.comoFunciona .row .primeiraComo {
-    flex: 1 0 0%;
-}
-.comoFunciona .row .segundaComo{
-    flex: 1 0 0%;
-}
-.comoFunciona .row .terceiraComo {
-    flex: 1 0 0%;
-}
-.comoFunciona .row .quartoComo {
-    flex: 1 0 0%;
+.relatorios .row .col-sm .planejamentoMensalImg{
+  position: relative;
+  width: 25%;
+  min-width: 8.5rem;
+  margin: 0 auto auto 0;
 }
 
-.comoFunciona .row .rMensal{
-  flex: 1 0 0%;
+.relatorios .row .col-sm .planejamentoMensalImg h1{
+  position: absolute;
+  top: -2rem;
+  right: -5.5rem;
+  text-align: right;
+  font-size: 1.5rem;
+  font-family:'museoSans-900';
+  color: var(--secondary-color);
 }
 
-.comoFunciona .row .pMensal{
-  flex: 1 0 0%;
+.relatorios .row .col-sm .planejamentoTexto{
+  color: var(--midDarkBlue-color);
+  font-family: 'museoSans-700';
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
+
+/* CONTATO */
+
+
+.contato .container .row .contatoBox1 h1{
+  text-align: center;
+  font-size: 2rem;
+  font-family:'museoSans-900';
+  color: var(--secondary-color);
+}
+
+.contato .container .row .contatoBox1 p{
+  color: var(--white-color);
+  font-family: 'museoSans-700';
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.contato .container .row .col-sm .contatoBox1{
+  min-width: fit-content;
+}
+
+.contato .container .row form{
+  min-width:fit-content;
+}
+
+.formBtn a{
+  min-width: fit-content;
+}
+
+.carousel .ctaButton{
+  position:absolute;
+  bottom: 0;
+  top: 66%;
+  right:15%;
+  left: auto;
+  padding-bottom: 5.125rem  ;
+} 
 
 }
